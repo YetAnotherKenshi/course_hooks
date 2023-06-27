@@ -5,12 +5,13 @@ import Divider from "../common/divider";
 import PropTypes from "prop-types";
 
 const SimpleComponent = ({ onLogin, onLogOut, isAuth }) => {
-    return (
-        <button
-            className="btn btn-primary"
-            onClick={isAuth ? onLogOut : onLogin}
-        >
-            {isAuth ? "Выйти из системы" : "Войти"}
+    return isAuth ? (
+        <button className="btn btn-secondary" onClick={onLogOut}>
+            Выйти из системы
+        </button>
+    ) : (
+        <button className="btn btn-primary" onClick={onLogin}>
+            Войти
         </button>
     );
 };
